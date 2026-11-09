@@ -1,0 +1,47 @@
+<!doctype html>
+<!-- Fuente de la imagen de vista previa (img/og.jpg). Se renderiza a 1200x630 con Chrome sin ventana. -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Jost:wght@400..600&display=block" rel="stylesheet">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #0a0907; }
+  .og {
+    position: relative; width: 1200px; height: 630px; overflow: hidden;
+    background: #0a0907;
+    font-family: "Jost", sans-serif; color: #f1eadb;
+  }
+  .photo {
+    position: absolute; top: 0; right: 0; width: 560px; height: 630px;
+    background: url("../img/marco.webp") 40% 18% / 120% auto no-repeat;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 34%);
+  }
+  .frame { position: absolute; inset: 18px; border: 1.5px solid rgba(214, 178, 98, .55); border-radius: 18px; }
+  .frame::before { content: ""; position: absolute; inset: 7px; border: 1px solid rgba(214, 178, 98, .24); border-radius: 12px; }
+  .text { position: absolute; left: 84px; top: 0; bottom: 0; width: 600px; display: flex; flex-direction: column; justify-content: center; }
+  .eyebrow { font-weight: 500; font-size: 22px; letter-spacing: .36em; text-transform: uppercase; color: #d6b262; }
+  .fifty {
+    font: 600 270px/.8 "Bodoni Moda", serif; letter-spacing: -.03em; margin: 18px 0 0 -8px;
+    background: linear-gradient(110deg, #8d6a2a 0%, #d9b866 20%, #fcebb3 40%, #c99c45 58%, #f0d58d 76%, #93702d 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .anos { margin-top: 18px; font-size: 20px; letter-spacing: .4em; text-transform: uppercase; color: #a99f8a; }
+  .name { margin-top: 6px; font: italic 500 64px/1.05 "Bodoni Moda", serif; color: #f6e3a6; }
+  .date { margin-top: 24px; font-size: 25px; letter-spacing: .01em; color: #f1eadb; }
+  .date b { color: #d6b262; font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="og">
+    <div class="photo"></div>
+    <div class="frame"></div>
+    <div class="text">
+      <div class="eyebrow">¡Shhh! Fiesta sorpresa</div>
+      <div class="fifty">50</div>
+      <div class="anos">años de</div>
+      <div class="name">Marco Morocho</div>
+      <div class="date">Sábado 19 de diciembre <b>·</b> 7:00 PM<br>Pleasantville, NY</div>
+    </div>
+  </div>
+</body>
+</html>

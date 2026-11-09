@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<title>Fiesta sorpresa · Los 50 de Marco Morocho</title>
+<meta name="description" content="¡Shhh! Fiesta sorpresa por los 50 años de Marco Morocho. Sábado 19 de diciembre, 7:00 PM, Pleasantville, NY.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0907">
+
+<!-- Vista previa del enlace (WhatsApp, iMessage, Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_US">
+<meta property="og:site_name" content="Los 50 de Marco">
+<meta property="og:title" content="¡Shhh! Fiesta sorpresa · Los 50 de Marco Morocho">
+<meta property="og:description" content="Sábado 19 de diciembre · 7:00 PM · Pleasantville, NY. Confirma tu asistencia antes del 1 de diciembre.">
+<meta property="og:url" content="https://kenosf45.github.io/fiesta-50/">
+<meta property="og:image" content="https://kenosf45.github.io/fiesta-50/img/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Invitación negra y dorada a los 50 años de Marco Morocho">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0907'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' text-anchor='middle' fill='%23d6b262'%3E50%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Jost:wght@300..600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+
+<style>
+:root {
+  --bg: #0a0907;
+  --card: #13110d;
+  --card-2: #191610;
+  --field: #0d0b08;
+  --line: rgba(214, 178, 98, .24);
+  --line-strong: rgba(214, 178, 98, .55);
+  --gold: #d6b262;
+  --gold-hi: #f6e3a6;
+  --ink: #f1eadb;
+  --muted: #a99f8a;
+  --error: #f0927a;
+  --serif: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --sans: "Jost", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gold-grad: linear-gradient(110deg, #8d6a2a 0%, #d9b866 20%, #fcebb3 36%, #c99c45 52%, #f0d58d 70%, #93702d 100%);
+  /* Curvas de movimiento */
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+  --ease-in-out: cubic-bezier(.77, 0, .175, 1);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background-color: var(--bg);
+  background-image: radial-gradient(ellipse 90% 34rem at 50% -8rem, rgba(214, 178, 98, .14), transparent 70%);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; touch-action: manipulation; }
+strong { font-weight: 500; color: var(--gold-hi); }
+
+.invite {
+  width: 100%;
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: max(28px, env(safe-area-inset-top)) 20px max(40px, env(safe-area-inset-bottom));
+  overflow: hidden;
+}
+
+/* ---------- Pieces ---------- */
+.kicker {
+  margin: 0 0 .35rem;
+  font: 500 .75rem/1.3 var(--sans);
+  letter-spacing: .32em; padding-left: .32em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.title {
+  margin: 0;
+  font: italic 500 clamp(2rem, 8.5vw, 2.5rem)/1.1 var(--serif);
+  letter-spacing: -.01em;
+  color: var(--ink);
+}
+.section { padding: 64px 0 0; text-align: center; }
+.hero + .section { padding-top: 24px; } /* Dónde, right after the date */
+
+.orn {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  margin: 0 auto; width: min(220px, 70%);
+  color: var(--gold);
+}
+.orn::before, .orn::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--line-strong)); }
+.orn::after { transform: scaleX(-1); }
+.orn i { width: 7px; height: 7px; transform: rotate(45deg); border: 1px solid currentColor; flex: none; }
+
+/* Controls: press feedback on :active, hover only for real mice, no text selection on long-press */
+.btn, .link-btn, .stepper button {
+  touch-action: manipulation;
+  user-select: none; -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.btn {
+  -webkit-appearance: none; appearance: none;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 54px; padding: 0 28px;
+  border: 1px solid transparent; border-radius: 999px;
+  font: 500 .9375rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  transition:
+    transform 160ms var(--ease-out),
+    background-position 400ms var(--ease-out),
+    background-color 200ms ease,
+    border-color 200ms ease,
+    opacity 200ms ease;
+}
+.btn:active { transform: scale(.97); }
+.btn:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 3px; }
+.btn-gold {
+  color: #1a1408;
+  background: var(--gold-grad);
+  background-size: 160% 100%;
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, .9), inset 0 1px 0 rgba(255, 255, 255, .35);
+}
+.btn-ghost { color: var(--ink); border-color: var(--line); background: transparent; }
+.btn-quiet { text-transform: none; letter-spacing: .02em; font-size: 1rem; font-weight: 400; }
+.btn-block { width: 100%; }
+.btn[disabled] { opacity: .6; cursor: progress; }
+.btn svg { width: 18px; height: 18px; flex: none; }
+
+.link-btn {
+  -webkit-appearance: none; appearance: none; background: none; border: 0; padding: 12px;
+  font: 400 .9375rem/1.4 var(--sans); color: var(--muted);
+  text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px;
+  cursor: pointer;
+  transition: color 200ms ease;
+}
+.link-btn:active { color: var(--gold-hi); }
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-gold:hover { background-position: 100% 0; }
+  .btn-ghost:hover { border-color: var(--gold); background-color: rgba(214, 178, 98, .06); }
+  .link-btn:hover { color: var(--gold-hi); }
+  .stepper button:hover:not(:disabled) { background-color: rgba(214, 178, 98, .08); }
+}
+
+.icon { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- Hero ---------- */
+.hero { text-align: center; }
+.eyebrow {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  margin: 0; font: 500 .75rem/1 var(--sans); letter-spacing: .38em; text-transform: uppercase; color: var(--gold);
+}
+.eyebrow::before, .eyebrow::after { content: ""; width: 28px; height: 1px; background: var(--line-strong); }
+
+.portrait {
+  position: relative;
+  width: min(76%, 330px);
+  aspect-ratio: 4 / 5;
+  margin: 34px auto 0;
+}
+.portrait::before {
+  content: ""; position: absolute; inset: -11px -11px 0;
+  border: 1px solid var(--line-strong); border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+  -webkit-mask-image: linear-gradient(#000 55%, transparent 92%);
+          mask-image: linear-gradient(#000 55%, transparent 92%);
+}
+.portrait .photo {
+  height: 100%;
+  overflow: hidden;
+  border-radius: 999px 999px 0 0;
+  -webkit-mask-image: linear-gradient(#000 52%, transparent 96%);
+          mask-image: linear-gradient(#000 52%, transparent 96%);
+}
+.portrait img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 38% 16%;
+  transform: scale(1.22);
+  transform-origin: 42% 30%;
+}
+
+.hero h1 { margin: 0; font-weight: 400; }
+.fifty {
+  display: block;
+  position: relative; z-index: 1;
+  margin: -.5em auto 0;
+  font: 600 clamp(8.5rem, 46vw, 12.5rem)/.82 var(--serif);
+  letter-spacing: -.03em;
+  background: var(--gold-grad);
+  background-size: 260% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  animation: sheen 9s ease-in-out infinite alternate;
+}
+@keyframes sheen { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+.anos {
+  display: block; margin-top: 14px;
+  font: 500 .8125rem/1 var(--sans); letter-spacing: .42em; padding-left: .42em; text-transform: uppercase; color: var(--muted);
+}
+.name {
+  display: block; margin-top: 12px;
+  font: italic 500 clamp(2.4rem, 11vw, 3.2rem)/1.05 var(--serif);
+  color: var(--gold-hi);
+}
+.tagline { margin: 16px auto 0; max-width: 22rem; color: var(--muted); }
+
+.date {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+  max-width: 21rem; margin: 30px auto 0;
+}
+.date .side {
+  padding: 9px 0 9px .26em; border-block: 1px solid var(--line-strong);
+  font: 500 .8125rem/1 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: var(--ink);
+}
+.date .day { font: 500 3.6rem/.9 var(--serif); color: var(--gold-hi); }
+.date-sub { margin: 14px 0 0; font: 400 1rem/1.4 var(--sans); letter-spacing: .2em; padding-left: .2em; color: var(--muted); }
+
+/* ---------- RSVP (in the hero) ---------- */
+.rsvp-card {
+  position: relative;
+  margin-top: 40px; padding: 28px 20px 22px;
+  text-align: left;
+  border: 1px solid var(--line-strong); border-radius: 24px;
+  background: linear-gradient(180deg, var(--card-2), var(--card));
+  scroll-margin-top: 16px;
+}
+.rsvp-card::before {
+  content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); border-radius: 19px; pointer-events: none;
+}
+.rsvp-head { text-align: center; margin-bottom: 24px; }
+.rsvp-head .title { font-size: clamp(1.65rem, 7.4vw, 2.05rem); }
+
+.field { display: block; margin: 0 0 18px; }
+.field-label {
+  display: block; margin: 0 0 8px;
+  font: 500 .8125rem/1.3 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--gold);
+}
+.field-label small { display: block; margin-top: 3px; text-transform: none; letter-spacing: 0; font-size: .8125rem; color: var(--muted); font-weight: 400; }
+.input {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; min-height: 54px; padding: 14px 16px;
+  font: 400 1rem/1.4 var(--sans); /* 16px: iOS no hace zoom al escribir */
+  color: var(--ink); background: var(--field);
+  border: 1px solid var(--line); border-radius: 14px;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+.input::placeholder { color: #6e6655; }
+.input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(214, 178, 98, .14); }
+.field.has-error .input { border-color: var(--error); }
+.err { display: none; margin-top: 7px; font-size: .875rem; font-style: normal; color: var(--error); }
+.field.has-error .err { display: block; }
+textarea.input { min-height: 120px; resize: vertical; }
+.hint { display: block; margin-top: 7px; font-size: .8125rem; color: var(--muted); }
+
+.stepper {
+  display: grid; grid-template-columns: 56px 1fr 56px; align-items: center;
+  border: 1px solid var(--line); border-radius: 14px; background: var(--field); overflow: hidden;
+}
+.stepper button {
+  -webkit-appearance: none; appearance: none; height: 54px; border: 0; background: transparent;
+  color: var(--gold-hi); font: 300 1.7rem/1 var(--sans); cursor: pointer;
+  transition: background-color 100ms ease;
+}
+.stepper button:active:not(:disabled) { background-color: rgba(214, 178, 98, .14); }
+.stepper button:disabled { color: #4d4637; cursor: default; }
+.stepper input {
+  -webkit-appearance: none; appearance: none; -moz-appearance: textfield;
+  width: 100%; height: 54px; border: 0; border-inline: 1px solid var(--line); background: transparent;
+  text-align: center; font: 500 1.6rem/1 var(--serif); color: var(--ink);
+}
+.stepper input::-webkit-outer-spin-button, .stepper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.stepper input:focus { outline: none; background: rgba(214, 178, 98, .06); }
+
+.actions { display: grid; gap: 12px; margin-top: 26px; }
+.form-error { display: none; margin: 14px 0 0; text-align: center; color: var(--error); font-size: .9375rem; }
+.form-error.show { display: block; }
+
+.step.enter { animation: stepIn 300ms var(--ease-out) both; }
+@keyframes stepIn { from { opacity: 0; transform: translateY(8px); } }
+
+.thanks { text-align: center; }
+.seal {
+  width: 64px; height: 64px; margin: 0 auto;
+  display: grid; place-items: center;
+  border-radius: 50%; background: var(--gold-grad); color: #1a1408;
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, .9);
+}
+.seal svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.seal.soft { background: transparent; border: 1px solid var(--line-strong); color: var(--gold); box-shadow: none; }
+.seal.soft svg { stroke-width: 1.6; }
+.step.enter .seal { animation: sealIn 420ms var(--ease-out) 60ms both; }
+@keyframes sealIn { from { opacity: 0; transform: scale(.9); } }
+.thanks h3 { margin: 16px 0 0; font: italic 600 1.9rem/1.15 var(--serif); color: var(--gold-hi); }
+.thanks h3:focus { outline: none; }
+.thanks p { margin: 8px auto 0; max-width: 22rem; color: var(--muted); }
+.thanks p strong { color: var(--ink); }
+
+.extras { margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--line); }
+.optional-tag {
+  display: block; width: max-content; margin: 0 auto 18px; padding: 5px 12px 5px calc(12px + .24em);
+  border: 1px solid var(--line); border-radius: 999px;
+  font: 500 .6875rem/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--muted);
+}
+.extras .actions { margin-top: 8px; }
+.extras .link-btn { justify-self: center; }
+
+.reminder {
+  margin: 20px auto 0; padding: 14px 16px; max-width: 22rem;
+  border: 1px dashed var(--line-strong); border-radius: 14px;
+  font-size: .9375rem; color: var(--ink); text-align: center;
+}
+
+/* ---------- Lo que te espera ---------- */
+.perks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 26px 0 0; text-align: left; }
+.perk {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 18px 16px 17px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+}
+.perk .icon { color: var(--gold); }
+.perk h3 { margin: 0; font: 500 1.0625rem/1.25 var(--sans); color: var(--ink); }
+.perk p { margin: 4px 0 0; font-size: .875rem; line-height: 1.45; color: var(--muted); }
+.perk.wide {
+  grid-column: 1 / -1;
+  flex-direction: row; align-items: center; gap: 16px;
+  padding: 20px 18px;
+  background: linear-gradient(135deg, rgba(214, 178, 98, .10), rgba(214, 178, 98, 0) 60%), var(--card);
+  border-color: var(--line-strong);
+}
+.perk.wide .icon { width: 34px; height: 34px; }
+.perk.wide h3 { font: italic 600 1.45rem/1.1 var(--serif); color: var(--gold-hi); }
+.clown-nose { fill: #e0503f; stroke: none; }
+
+/* ---------- Es sorpresa + horarios ---------- */
+.secret {
+  position: relative;
+  margin-top: 64px; padding: 32px 22px 26px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--card-2), var(--card));
+  border: 1px solid var(--line-strong); border-radius: 24px;
+}
+.secret::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); border-radius: 19px; pointer-events: none; }
+.secret-emoji { font-size: 2.6rem; line-height: 1; }
+.secret h2 { margin: 12px 0 0; font: italic 600 clamp(1.7rem, 7.6vw, 2rem)/1.15 var(--serif); color: var(--gold-hi); }
+.secret > p { margin: 10px auto 0; max-width: 22rem; color: var(--ink); }
+
+.moments {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 6px;
+  margin: 26px 0 0; padding: 24px 0 0;
+  border-top: 1px solid var(--line);
+}
+.moment time {
+  display: block;
+  font: 500 clamp(2rem, 9.6vw, 2.6rem)/1 var(--serif);
+  color: var(--ink); font-variant-numeric: lining-nums;
+  white-space: nowrap;
+}
+.moment time small { font-size: .42em; letter-spacing: .08em; margin-left: .2em; vertical-align: .9em; color: var(--muted); }
+.moment span {
+  display: block; margin-top: 10px;
+  font: 500 .75rem/1.2 var(--sans); letter-spacing: .22em; padding-left: .22em; text-transform: uppercase; color: var(--muted);
+}
+.moment.key time { color: var(--gold-hi); }
+.moment.key time small { color: var(--gold); }
+.moment.key span { color: var(--gold); }
+.moments .then { width: 22px; height: 22px; color: var(--line-strong); fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.secret-note { margin: 22px auto 0; max-width: 21rem; font-size: .9375rem; line-height: 1.5; color: var(--muted); }
+
+/* ---------- Lugar ---------- */
+.venue-card {
+  margin-top: 26px; padding: 26px 22px 22px;
+  border: 1px solid var(--line); border-radius: 22px;
+  background: var(--card);
+}
+.address { margin: 0; font: 500 1.45rem/1.3 var(--serif); color: var(--ink); }
+.address span { display: block; font: 400 1rem/1.5 var(--sans); color: var(--muted); margin-top: 4px; }
+.parking {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin: 16px 0 0; padding: 8px 14px 8px 10px;
+  border-radius: 999px; background: rgba(214, 178, 98, .09);
+  font-size: .9375rem; color: var(--gold-hi);
+}
+.parking .icon { width: 20px; height: 20px; }
+.venue-card .btn { margin-top: 22px; }
+
+/* ---------- Cuenta regresiva ---------- */
+.countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 26px 0 0; }
+.unit {
+  padding: 16px 4px 13px;
+  border: 1px solid var(--line); border-radius: 16px;
+  background: linear-gradient(180deg, rgba(214, 178, 98, .07), rgba(214, 178, 98, .01));
+}
+.unit b {
+  display: block; font: 500 clamp(2rem, 9.5vw, 2.6rem)/1 var(--serif);
+  color: var(--gold-hi); font-variant-numeric: tabular-nums lining-nums;
+}
+.unit small { display: block; margin-top: 8px; font: 500 .6875rem/1 var(--sans); letter-spacing: .2em; padding-left: .2em; text-transform: uppercase; color: var(--muted); }
+.countdown-note { margin: 14px 0 0; font-size: .9375rem; color: var(--muted); }
+.countdown-over { display: none; margin: 22px 0 0; font: italic 500 1.8rem/1.2 var(--serif); color: var(--gold-hi); }
+.is-over .countdown, .is-over .countdown-note { display: none; }
+.is-over .countdown-over { display: block; }
+
+/* ---------- Footer ---------- */
+.footer { padding: 56px 0 8px; text-align: center; }
+.footer .mono {
+  margin-top: 22px;
+  font: 600 3rem/1 var(--serif);
+  background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.footer p { margin: 12px 0 0; font: italic 500 1.3rem/1.3 var(--serif); color: var(--ink); }
+.footer small { display: block; margin-top: 10px; color: var(--muted); font-size: .875rem; letter-spacing: .04em; }
+
+/* ---------- Motion ---------- */
+/* Entrada de la portada: una sola vez, escalonada 60ms */
+.js .rise { animation: rise 700ms var(--ease-out) both; }
+.js .rise-2 { animation-delay: 60ms; }
+.js .rise-3 { animation-delay: 120ms; }
+.js .rise-4 { animation-delay: 180ms; }
+.js .rise-5 { animation-delay: 240ms; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+
+/* Secciones al hacer scroll */
+.js .reveal { opacity: 0; transform: translateY(12px); transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out); }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* Movimiento reducido: solo desvanecer, sin desplazamiento */
+@media (prefers-reduced-motion: reduce) {
+  .fifty { animation: none; }
+  .js .rise { animation: fade 300ms ease both; }
+  .js .reveal { transform: none; transition: opacity 300ms ease; }
+  .step.enter, .step.enter .seal { animation: fade 200ms ease both; }
+}
+@keyframes fade { from { opacity: 0; } }
+
+.confetti { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 50; }
+
+/* ---------- Bigger screens: the invite sits on a framed card ---------- */
+@media (min-width: 640px) {
+  body { padding: 48px 20px; }
+  .invite {
+    position: relative;
+    padding: 56px 44px 48px;
+    border: 1px solid var(--line-strong); border-radius: 28px;
+    background: linear-gradient(180deg, rgba(25, 22, 16, .9), rgba(12, 11, 8, .9));
+    box-shadow: 0 60px 120px -60px rgba(0, 0, 0, .9);
+  }
+  .invite::before { content: ""; position: absolute; inset: 8px; border: 1px solid var(--line); border-radius: 22px; pointer-events: none; }
+}
+
+/* Very small phones (iPhone SE / mini) */
+@media (max-width: 359px) {
+  .invite { padding-inline: 16px; }
+  .btn { padding: 0 14px; font-size: .875rem; letter-spacing: .08em; }
+  .btn-quiet { font-size: .9375rem; letter-spacing: 0; }
+  .rsvp-card, .venue-card { padding-inline: 16px; }
+  .secret { padding-inline: 16px; }
+  .rsvp-head .title { font-size: 1.5rem; }
+}
+</style>
+</head>
+
+<body>
+<main class="invite">
+
+  <!-- ===== Portada + confirmación ===== -->
+  <header class="hero">
+    <p class="eyebrow rise">Fiesta sorpresa</p>
+
+    <figure class="portrait rise rise-2" style="margin-bottom:0">
+      <div class="photo"><img src="img/marco.webp" width="1086" height="1448" alt="Marco Morocho sentado junto al río, con el faro y el puente al fondo" fetchpriority="high"></div>
+    </figure>
+
+    <h1>
+      <span class="fifty rise rise-3">50</span>
+      <span class="anos rise rise-4">años de</span>
+      <span class="name rise rise-4">Marco Morocho</span>
+    </h1>
+    <p class="tagline rise rise-5">Medio siglo bien vivido. ¡Vamos a celebrarlo en grande!</p>
+
+    <div class="date rise rise-5" aria-label="Sábado 19 de diciembre de 2026">
+      <span class="side">Sábado</span>
+      <span class="day">19</span>
+      <span class="side">Diciembre</span>
+    </div>
+    <p class="date-sub rise rise-5">2026 · 7:00 PM</p>
+  </header>
+
+  <!-- ===== Lugar ===== -->
+  <section class="section reveal" aria-labelledby="venue-title">
+    <h2 class="title" id="venue-title">Dónde</h2>
+    <div class="venue-card">
+      <p class="address">42 Memorial Plaza<span>Pleasantville, NY 10570</span></p>
+      <p class="parking">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M10 16.5v-9h3.2a2.7 2.7 0 0 1 0 5.4H10"/></svg>
+        Estacionamiento gratis afuera
+      </p>
+      <a class="btn btn-gold btn-block" href="https://www.google.com/maps/dir/?api=1&amp;destination=42+Memorial+Plaza%2C+Pleasantville%2C+NY+10570" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>
+        Cómo llegar
+      </a>
+    </div>
+  </section>
+
+  <section class="rsvp-card reveal" id="rsvp" aria-labelledby="rsvp-title">
+    <div class="rsvp-head" id="rsvp-head">
+      <p class="kicker">Antes del 1 de diciembre</p>
+      <h2 class="title" id="rsvp-title">Confirma tu asistencia</h2>
+    </div>
+
+    <!-- Paso 1: datos -->
+    <form class="step" id="step-form" novalidate>
+      <div class="field" id="f-name">
+        <label class="field-label" for="in-name">Nombre y apellido</label>
+        <input class="input" id="in-name" name="name" autocomplete="name" autocapitalize="words" autocorrect="off" spellcheck="false" enterkeyhint="next" maxlength="80" required aria-describedby="err-name">
+        <em class="err" id="err-name">Escribe tu nombre, por favor.</em>
+      </div>
+
+      <div class="field" id="f-phone">
+        <label class="field-label" for="in-phone">Teléfono</label>
+        <input class="input" id="in-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="done" maxlength="25" placeholder="(914) 000-0000" required aria-describedby="err-phone">
+        <em class="err" id="err-phone">Escribe un número de teléfono válido.</em>
+      </div>
+
+      <div class="field" id="f-guests">
+        <span class="field-label" id="guests-label">¿Cuántas personas vienen? <small>(contándote a ti)</small></span>
+        <div class="stepper">
+          <button type="button" data-step="-1" aria-label="Una persona menos">−</button>
+          <input name="guests" type="number" inputmode="numeric" min="1" max="99" value="1" aria-labelledby="guests-label">
+          <button type="button" data-step="1" aria-label="Una persona más">+</button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-gold btn-block" type="submit" data-choice="yes">Confirmar asistencia</button>
+        <button class="btn btn-ghost btn-quiet btn-block" type="submit" data-choice="no">Lo siento, no puedo asistir</button>
+      </div>
+      <p class="form-error" role="alert" id="form-error"></p>
+    </form>
+
+    <!-- Paso 2: gracias + mensaje y canción (opcional) -->
+    <form class="step" id="step-extras" novalidate hidden>
+      <div class="thanks">
+        <div class="seal" id="extras-seal"></div>
+        <h3 id="extras-title" tabindex="-1">¡Gracias!</h3>
+        <p id="extras-text"></p>
+      </div>
+
+      <div class="extras">
+        <span class="optional-tag">Opcional</span>
+        <div class="field">
+          <label class="field-label" for="in-message">Déjale un mensaje a Marco</label>
+          <textarea class="input" id="in-message" name="message" rows="4" maxlength="1000" placeholder="Un recuerdo, un deseo, unas palabras de cariño…" aria-describedby="hint-message"></textarea>
+          <span class="hint" id="hint-message">Guardaremos todos los mensajes para dárselos a Marco.</span>
+        </div>
+        <div class="field" id="f-song">
+          <label class="field-label" for="in-song">Pídele una canción al DJ</label>
+          <input class="input" id="in-song" name="song" maxlength="120" autocomplete="off" enterkeyhint="send" placeholder="Canción y artista">
+        </div>
+        <div class="actions">
+          <button class="btn btn-gold btn-block" type="submit">Enviar</button>
+          <button class="link-btn" type="button" id="skip-extras">Omitir</button>
+        </div>
+        <p class="form-error" role="alert" id="extras-error"></p>
+      </div>
+    </form>
+
+    <!-- Paso 3: listo -->
+    <div class="step thanks" id="step-done" hidden>
+      <div class="seal" id="done-seal"></div>
+      <h3 id="done-title" tabindex="-1">¡Listo!</h3>
+      <p id="done-text"></p>
+      <p class="reminder" id="done-reminder">🤫 Recuerda: <strong>es sorpresa.</strong> Llega a las 7:00 PM; Marco llega a las 7:30.</p>
+      <button class="link-btn" type="button" id="change-answer" style="margin-top:10px">Cambiar mi respuesta</button>
+    </div>
+  </section>
+
+  <!-- ===== Lo que te espera ===== -->
+  <section class="section reveal" aria-labelledby="perks-title">
+    <p class="kicker">La celebración</p>
+    <h2 class="title" id="perks-title">Lo que te espera</h2>
+    <div class="perks">
+      <div class="perk wide">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4.5" height="6.5" rx="1.6"/><rect x="16.5" y="14" width="4.5" height="6.5" rx="1.6"/></svg>
+        <div><h3>DJ toda la noche</h3><p>Música para bailar hasta las 2:00 AM</p></div>
+      </div>
+      <div class="perk">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3v5.2a2 2 0 0 0 4 0V3M8.5 3v18"/><path d="M17.5 21V3c-2.2 1.4-3.3 4-3.3 7.2V14h3.3"/></svg>
+        <div><h3>Comida</h3><p>Gratis para todos los invitados</p></div>
+      </div>
+      <div class="perk">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v4.2a5 5 0 0 1-10 0z"/><path d="M7.3 6h9.4"/><path d="M12 12.2V20.5M8.5 20.5h7"/></svg>
+        <div><h3>Bebidas</h3><p>Gratis toda la noche</p></div>
+      </div>
+      <div class="perk">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="14" r="6.8"/><path d="M8.8 7.6 12 2.6l3.2 5"/><circle cx="12" cy="2.4" r=".9" fill="currentColor"/><path d="M9.4 12.2h.01M14.6 12.2h.01" stroke-width="2.4"/><circle class="clown-nose" cx="12" cy="14.6" r="1.7"/><path d="M9.2 17.1c1.6 1.3 4 1.3 5.6 0"/></svg>
+        <div><h3>Payaso para adultos</h3><p>Pura risa para los adultos</p></div>
+      </div>
+      <div class="perk">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.3" cy="8.3" r="1.1" fill="currentColor"/><circle cx="12" cy="12" r="1.1" fill="currentColor"/><circle cx="15.7" cy="15.7" r="1.1" fill="currentColor"/></svg>
+        <div><h3>Juegos y premios</h3><p>Dinámicas y concursos para adultos</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Es sorpresa: a qué hora llegar ===== -->
+  <section class="secret reveal" aria-labelledby="secret-title">
+    <div class="secret-emoji" aria-hidden="true">🤫</div>
+    <h2 id="secret-title">¡Shhh! Es una sorpresa</h2>
+    <p>Marco no sabe nada de esta fiesta. Por favor, <strong>no le comentes nada.</strong></p>
+
+    <div class="moments">
+      <div class="moment">
+        <time datetime="2026-12-19T19:00">7:00<small>PM</small></time>
+        <span>Tú llegas</span>
+      </div>
+      <svg class="then" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      <div class="moment key">
+        <time datetime="2026-12-19T19:30">7:30<small>PM</small></time>
+        <span>Llega Marco</span>
+      </div>
+    </div>
+    <p class="secret-note">Llega puntual para que Marco no te vea entrar. La fiesta sigue hasta las 2:00 AM.</p>
+  </section>
+
+  <!-- ===== Cuenta regresiva ===== -->
+  <section class="section reveal" id="countdown-section" aria-labelledby="cd-title">
+    <p class="kicker">Cuenta regresiva</p>
+    <h2 class="title" id="cd-title">Faltan</h2>
+    <div class="countdown" role="timer" aria-live="off">
+      <div class="unit"><b id="cd-d">--</b><small>Días</small></div>
+      <div class="unit"><b id="cd-h">--</b><small>Horas</small></div>
+      <div class="unit"><b id="cd-m">--</b><small>Min</small></div>
+      <div class="unit"><b id="cd-s">--</b><small>Seg</small></div>
+    </div>
+    <p class="countdown-note">para la gran sorpresa</p>
+    <p class="countdown-over" id="cd-over">¡Hoy es la gran noche!</p>
+  </section>
+
+  <footer class="footer reveal">
+    <div class="orn" aria-hidden="true"><i></i></div>
+    <div class="mono" aria-hidden="true">50</div>
+    <p>Te esperamos para celebrar a Marco</p>
+    <small>Sábado 19 de diciembre · Pleasantville, NY</small>
+  </footer>
+</main>
+
+<script>
+(() => {
+  'use strict';
+  const $ = (s, el = document) => el.querySelector(s);
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Cuenta regresiva (hora de Nueva York) ---------- */
+  const START = Date.parse('2026-12-19T19:00:00-05:00'); // llegada de invitados
+  const END = Date.parse('2026-12-20T02:00:00-05:00');
+  const cdSection = $('#countdown-section');
+  const cd = { d: $('#cd-d'), h: $('#cd-h'), m: $('#cd-m'), s: $('#cd-s') };
+  const pad = (n) => String(n).padStart(2, '0');
+
+  function tick() {
+    const now = Date.now();
+    if (now >= START) {
+      cdSection.classList.add('is-over');
+      $('#cd-over').textContent = now < END ? '¡Hoy es la gran noche!' : '¡Gracias por celebrar con Marco!';
+      return false;
+    }
+    let t = Math.floor((START - now) / 1000);
+    const d = Math.floor(t / 86400); t %= 86400;
+    const h = Math.floor(t / 3600); t %= 3600;
+    const m = Math.floor(t / 60);
+    const s = t % 60;
+    cd.d.textContent = d; cd.h.textContent = pad(h); cd.m.textContent = pad(m); cd.s.textContent = pad(s);
+    return true;
+  }
+  if (tick()) { const id = setInterval(() => { if (!tick()) clearInterval(id); }, 1000); }
+
+  /* ---------- Aparecer al hacer scroll ---------- */
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    reveals.forEach((el) => io.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add('in'));
+  }
+
+  /* ---------- Confirmación ---------- */
+  // Las respuestas se guardan en la hoja de Google "Los 50 de Marco · Confirmaciones"
+  // (Apps Script en tools/apps-script.gs). Si esto queda vacío, el formulario no guarda nada.
+  const API = 'https://script.google.com/macros/s/AKfycbwbtbqKqB0gzlYzUShYjEw6VgC2O5gIJ7U3gT1XDqKKPMDAA-56BHVPAD9vHeEiyU3Etg/exec';
+  const STORE_KEY = 'fiesta50-rsvp';
+
+  const card = $('#rsvp');
+  const head = $('#rsvp-head');
+  const stepForm = $('#step-form');
+  const stepExtras = $('#step-extras');
+  const stepDone = $('#step-done');
+  const guestsInput = stepForm.elements.guests;
+  let choice = 'yes';
+  let current = null;
+
+  const CHECK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  const HEART = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.2-4.5-7.2-10.1A4.1 4.1 0 0 1 12 7.3a4.1 4.1 0 0 1 7.2 2.6C19.2 15.5 12 20 12 20z"/></svg>';
+
+  const load = () => { try { return JSON.parse(localStorage.getItem(STORE_KEY)); } catch { return null; } };
+  const save = () => { try { localStorage.setItem(STORE_KEY, JSON.stringify(current)); } catch {} };
+
+  async function send(path, body) {
+    if (!API) {
+      await new Promise((r) => setTimeout(r, 650));
+      return { id: body.id || 'prueba-' + Math.random().toString(36).slice(2, 9) };
+    }
+    // text/plain evita la verificación previa (CORS) que Apps Script no acepta
+    const res = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(Object.assign({ action: path.replace(/^\//, '') }, body)),
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || 'error');
+    return data;
+  }
+
+  function setStep(step) {
+    [stepForm, stepExtras, stepDone].forEach((s) => { s.hidden = s !== step; s.classList.remove('enter'); });
+    head.hidden = step !== stepForm;
+  }
+
+  function show(step) {
+    setStep(step);
+    void step.offsetWidth;
+    step.classList.add('enter');
+    const top = card.getBoundingClientRect().top;
+    if (top < 0 || top > innerHeight * 0.6) {
+      card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    }
+    const focusTarget = step.querySelector('h3[tabindex]');
+    if (focusTarget) focusTarget.focus({ preventScroll: true });
+  }
+
+  const firstName = (n) => n.trim().split(/\s+/)[0];
+  const people = (n) => (n === 1 ? '1 persona' : n + ' personas');
+  const escapeHtml = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+  /* contador de personas */
+  function setGuests(n) {
+    n = Math.max(1, Math.min(99, Math.round(Number(n) || 1)));
+    guestsInput.value = n;
+    stepForm.querySelector('[data-step="-1"]').disabled = n <= 1;
+  }
+  stepForm.querySelectorAll('[data-step]').forEach((b) =>
+    b.addEventListener('click', () => setGuests(Number(guestsInput.value) + Number(b.dataset.step))));
+  guestsInput.addEventListener('change', () => setGuests(guestsInput.value));
+  setGuests(1);
+
+  stepForm.querySelectorAll('[data-choice]').forEach((b) =>
+    b.addEventListener('click', () => { choice = b.dataset.choice; }));
+
+  function setError(fieldId, on) {
+    const field = $('#' + fieldId);
+    field.classList.toggle('has-error', on);
+    field.querySelector('input').setAttribute('aria-invalid', on ? 'true' : 'false');
+  }
+  ['name', 'phone'].forEach((n) => stepForm.elements[n].addEventListener('input', () => setError('f-' + n, false)));
+
+  function busy(btn, on) {
+    if (on) { btn.dataset.label = btn.textContent; btn.textContent = 'Enviando…'; btn.disabled = true; }
+    else { btn.textContent = btn.dataset.label || btn.textContent; btn.disabled = false; }
+  }
+
+  stepForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const attending = (e.submitter ? e.submitter.dataset.choice : choice) !== 'no';
+    const name = stepForm.elements.name.value.trim().replace(/\s+/g, ' ');
+    const phone = stepForm.elements.phone.value.trim();
+    const digits = phone.replace(/\D/g, '');
+    const guests = attending ? Number(guestsInput.value) || 1 : 0;
+
+    const badName = name.length < 2;
+    const badPhone = attending ? digits.length < 7 : (digits.length > 0 && digits.length < 7);
+    setError('f-name', badName);
+    setError('f-phone', badPhone);
+    if (badName || badPhone) {
+      (badName ? stepForm.elements.name : stepForm.elements.phone).focus();
+      return;
+    }
+
+    const btn = stepForm.querySelector(`[data-choice="${attending ? 'yes' : 'no'}"]`);
+    const err = $('#form-error');
+    err.classList.remove('show');
+    stepForm.querySelectorAll('button').forEach((b) => (b.disabled = true));
+    busy(btn, true);
+    try {
+      const r = await send('/rsvp', { id: current && current.id, attending, name, phone, guests });
+      current = { id: r.id, attending, name, phone, guests, done: false };
+      save();
+      renderExtras();
+      show(stepExtras);
+      if (attending) confetti();
+    } catch {
+      err.textContent = 'No pudimos enviar tu respuesta. Revisa tu conexión e inténtalo otra vez.';
+      err.classList.add('show');
+    } finally {
+      busy(btn, false);
+      stepForm.querySelectorAll('button').forEach((b) => (b.disabled = false));
+      setGuests(guestsInput.value);
+    }
+  });
+
+  function renderSeal(el, yes) {
+    el.className = yes ? 'seal' : 'seal soft';
+    el.innerHTML = yes ? CHECK : HEART;
+  }
+
+  function renderExtras() {
+    const yes = current.attending;
+    renderSeal($('#extras-seal'), yes);
+    $('#extras-title').textContent = yes ? `¡Gracias, ${firstName(current.name)}!` : `Gracias por avisarnos, ${firstName(current.name)}`;
+    $('#extras-text').innerHTML = yes
+      ? `Tu lugar está confirmado para <strong>${people(current.guests)}</strong>. ¡Nos vemos el 19 de diciembre!`
+      : 'Te vamos a extrañar. Si quieres, déjale unas palabras a Marco.';
+    $('#f-song').hidden = !yes;
+    stepExtras.elements.message.value = '';
+    stepExtras.elements.song.value = '';
+  }
+
+  function renderDone() {
+    const yes = current.attending;
+    renderSeal($('#done-seal'), yes);
+    $('#done-title').textContent = yes ? '¡Nos vemos en la fiesta!' : '¡Gracias!';
+    $('#done-text').innerHTML = yes
+      ? `Confirmado para <strong>${people(current.guests)}</strong> a nombre de <strong>${escapeHtml(current.name)}</strong>.`
+      : (current.sentExtras ? 'Le haremos llegar tu mensaje a Marco.' : 'Recibimos tu respuesta.');
+    $('#done-reminder').hidden = !yes;
+  }
+
+  stepExtras.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const message = stepExtras.elements.message.value.trim();
+    const song = current.attending ? stepExtras.elements.song.value.trim() : '';
+    if (!message && !song) return finish(false);
+    const btn = stepExtras.querySelector('button[type="submit"]');
+    const err = $('#extras-error');
+    err.classList.remove('show');
+    busy(btn, true);
+    try {
+      await send('/extras', { id: current.id, message, song });
+      finish(true);
+    } catch {
+      err.textContent = 'No pudimos enviar tu mensaje. Inténtalo otra vez.';
+      err.classList.add('show');
+    } finally {
+      busy(btn, false);
+    }
+  });
+  $('#skip-extras').addEventListener('click', () => finish(false));
+
+  function finish(sent) {
+    current.done = true;
+    current.sentExtras = sent || current.sentExtras || false;
+    save();
+    renderDone();
+    show(stepDone);
+  }
+
+  $('#change-answer').addEventListener('click', () => {
+    stepForm.elements.name.value = current.name || '';
+    stepForm.elements.phone.value = current.phone || '';
+    setGuests(current.guests || 1);
+    show(stepForm);
+    stepForm.elements.name.focus({ preventScroll: true });
+  });
+
+  // Si la persona ya respondió desde este teléfono, mostrar su respuesta
+  const saved = load();
+  if (saved && saved.name) {
+    current = saved;
+    if (saved.done) { renderDone(); setStep(stepDone); }
+    else { renderExtras(); setStep(stepExtras); }
+  }
+
+  /* ---------- Confeti dorado (solo al confirmar) ---------- */
+  function confetti() {
+    if (reduceMotion) return;
+    const c = document.createElement('canvas');
+    c.className = 'confetti';
+    document.body.appendChild(c);
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const W = innerWidth, H = innerHeight;
+    c.width = W * dpr; c.height = H * dpr;
+    const ctx = c.getContext('2d');
+    ctx.scale(dpr, dpr);
+    const r = card.getBoundingClientRect();
+    const ox = W / 2, oy = Math.min(Math.max(r.top + 80, 80), H * 0.5);
+    const colors = ['#fcebb3', '#e7c777', '#d6b262', '#b48a3a', '#fff6dc'];
+    const parts = Array.from({ length: 130 }, () => {
+      const a = Math.random() * Math.PI * 2, v = 4 + Math.random() * 9;
+      return {
+        x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 6,
+        w: 5 + Math.random() * 5, h: 8 + Math.random() * 8,
+        rot: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.35,
+        c: colors[(Math.random() * colors.length) | 0],
+      };
+    });
+    const DURATION = 2600;
+    const t0 = performance.now();
+    (function frame(t) {
+      const el = t - t0;
+      ctx.clearRect(0, 0, W, H);
+      ctx.globalAlpha = Math.max(0, 1 - Math.max(0, el - 1600) / (DURATION - 1600));
+      for (const p of parts) {
+        p.vy += 0.3; p.vx *= 0.985; p.vy *= 0.985;
+        p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+        const k = Math.abs(Math.cos(p.rot * 1.7));
+        ctx.save();
+        ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+        ctx.fillStyle = p.c;
+        ctx.fillRect(-p.w / 2, -p.h / 2 * k, p.w, p.h * k + 1);
+        ctx.restore();
+      }
+      if (el < DURATION) requestAnimationFrame(frame); else c.remove();
+    })(t0);
+  }
+})();
+</script>
+</body>
+</html>
