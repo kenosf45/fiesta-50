@@ -283,6 +283,15 @@ textarea.input { min-height: 120px; resize: vertical; }
 .stepper input::-webkit-outer-spin-button, .stepper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .stepper input:focus { outline: none; background: rgba(214, 178, 98, .06); }
 
+/* Adultos / Niños: etiqueta a la izquierda, contador a la derecha */
+.count-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; }
+.count-row + .count-row { border-top: 1px solid var(--line); }
+.count-label { font: 500 1.0625rem/1.3 var(--sans); color: var(--ink); }
+.count-label small { display: block; margin-top: 2px; font-size: .8125rem; font-weight: 400; color: var(--muted); }
+.count-row .stepper { flex: none; width: 152px; grid-template-columns: 48px 1fr 48px; }
+.count-row .stepper button, .count-row .stepper input { height: 48px; }
+.count-row .stepper input { font-size: 1.4rem; }
+
 .actions { display: grid; gap: 12px; margin-top: 26px; }
 .form-error { display: none; margin: 14px 0 0; text-align: center; color: var(--error); font-size: .9375rem; }
 .form-error.show { display: block; }
@@ -467,6 +476,9 @@ textarea.input { min-height: 120px; resize: vertical; }
   .rsvp-card, .venue-card { padding-inline: 16px; }
   .secret { padding-inline: 16px; }
   .rsvp-head .title { font-size: 1.5rem; }
+  .count-row { gap: 10px; }
+  .count-row .stepper { width: 128px; grid-template-columns: 40px 1fr 40px; }
+  .count-label small { font-size: .75rem; }
 }
 </style>
 </head>
@@ -499,7 +511,7 @@ textarea.input { min-height: 120px; resize: vertical; }
 
   <!-- ===== Lugar ===== -->
   <section class="section reveal" aria-labelledby="venue-title">
-    <h2 class="title" id="venue-title">Dónde</h2>
+    <h2 class="title" id="venue-title">Lugar</h2>
     <div class="venue-card">
       <p class="address">42 Memorial Plaza<span>Pleasantville, NY 10570</span></p>
       <p class="parking">
@@ -533,12 +545,23 @@ textarea.input { min-height: 120px; resize: vertical; }
         <em class="err" id="err-phone">Escribe un número de teléfono válido.</em>
       </div>
 
-      <div class="field" id="f-guests">
-        <span class="field-label" id="guests-label">¿Cuántas personas vienen? <small>(contándote a ti)</small></span>
-        <div class="stepper">
-          <button type="button" data-step="-1" aria-label="Una persona menos">−</button>
-          <input name="guests" type="number" inputmode="numeric" min="1" max="99" value="1" aria-labelledby="guests-label">
-          <button type="button" data-step="1" aria-label="Una persona más">+</button>
+      <div class="field" id="f-guests" role="group" aria-labelledby="guests-label">
+        <span class="field-label" id="guests-label">¿Cuántas personas vienen?</span>
+        <div class="count-row">
+          <span class="count-label" id="adults-label">Adultos <small>(incluyéndote a ti)</small></span>
+          <div class="stepper">
+            <button type="button" data-step="-1" aria-label="Un adulto menos">−</button>
+            <input name="adults" type="number" inputmode="numeric" min="1" max="99" value="1" aria-labelledby="adults-label">
+            <button type="button" data-step="1" aria-label="Un adulto más">+</button>
+          </div>
+        </div>
+        <div class="count-row">
+          <span class="count-label" id="kids-label">Niños</span>
+          <div class="stepper">
+            <button type="button" data-step="-1" aria-label="Un niño menos">−</button>
+            <input name="kids" type="number" inputmode="numeric" min="0" max="99" value="0" aria-labelledby="kids-label">
+            <button type="button" data-step="1" aria-label="Un niño más">+</button>
+          </div>
         </div>
       </div>
 
@@ -706,7 +729,8 @@ textarea.input { min-height: 120px; resize: vertical; }
   const stepForm = $('#step-form');
   const stepExtras = $('#step-extras');
   const stepDone = $('#step-done');
-  const guestsInput = stepForm.elements.guests;
+  const adultsInput = stepForm.elements.adults;
+  const kidsInput = stepForm.elements.kids;
   let choice = 'yes';
   let current = null;
 
@@ -751,19 +775,32 @@ textarea.input { min-height: 120px; resize: vertical; }
   }
 
   const firstName = (n) => n.trim().split(/\s+/)[0];
-  const people = (n) => (n === 1 ? '1 persona' : n + ' personas');
   const escapeHtml = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-  /* contador de personas */
-  function setGuests(n) {
-    n = Math.max(1, Math.min(99, Math.round(Number(n) || 1)));
-    guestsInput.value = n;
-    stepForm.querySelector('[data-step="-1"]').disabled = n <= 1;
+  // "2 adultos y 1 niño" (respuestas guardadas antes solo tenían "guests")
+  function partyText(c) {
+    const a = c.adults != null ? c.adults : (c.guests || 1);
+    const k = c.kids || 0;
+    const adults = a === 1 ? '1 adulto' : a + ' adultos';
+    return k ? `${adults} y ${k === 1 ? '1 niño' : k + ' niños'}` : adults;
   }
-  stepForm.querySelectorAll('[data-step]').forEach((b) =>
-    b.addEventListener('click', () => setGuests(Number(guestsInput.value) + Number(b.dataset.step))));
-  guestsInput.addEventListener('change', () => setGuests(guestsInput.value));
-  setGuests(1);
+
+  /* contadores de adultos y niños */
+  function setCount(input, n) {
+    const min = Number(input.min) || 0;
+    n = Math.round(Number(n));
+    n = Math.max(min, Math.min(99, Number.isFinite(n) ? n : min));
+    input.value = n;
+    input.closest('.stepper').querySelector('[data-step="-1"]').disabled = n <= min;
+  }
+  const refreshCounts = () => { setCount(adultsInput, adultsInput.value); setCount(kidsInput, kidsInput.value); };
+  stepForm.querySelectorAll('.stepper').forEach((st) => {
+    const input = st.querySelector('input');
+    st.querySelectorAll('[data-step]').forEach((b) =>
+      b.addEventListener('click', () => setCount(input, Number(input.value) + Number(b.dataset.step))));
+    input.addEventListener('change', () => setCount(input, input.value));
+  });
+  refreshCounts();
 
   stepForm.querySelectorAll('[data-choice]').forEach((b) =>
     b.addEventListener('click', () => { choice = b.dataset.choice; }));
@@ -786,7 +823,9 @@ textarea.input { min-height: 120px; resize: vertical; }
     const name = stepForm.elements.name.value.trim().replace(/\s+/g, ' ');
     const phone = stepForm.elements.phone.value.trim();
     const digits = phone.replace(/\D/g, '');
-    const guests = attending ? Number(guestsInput.value) || 1 : 0;
+    const adults = attending ? Number(adultsInput.value) || 1 : 0;
+    const kids = attending ? Number(kidsInput.value) || 0 : 0;
+    const guests = adults + kids;
 
     const badName = name.length < 2;
     const badPhone = attending ? digits.length < 7 : (digits.length > 0 && digits.length < 7);
@@ -803,8 +842,8 @@ textarea.input { min-height: 120px; resize: vertical; }
     stepForm.querySelectorAll('button').forEach((b) => (b.disabled = true));
     busy(btn, true);
     try {
-      const r = await send('/rsvp', { id: current && current.id, attending, name, phone, guests });
-      current = { id: r.id, attending, name, phone, guests, done: false };
+      const r = await send('/rsvp', { id: current && current.id, attending, name, phone, adults, kids, guests });
+      current = { id: r.id, attending, name, phone, adults, kids, guests, done: false };
       save();
       renderExtras();
       show(stepExtras);
@@ -815,7 +854,7 @@ textarea.input { min-height: 120px; resize: vertical; }
     } finally {
       busy(btn, false);
       stepForm.querySelectorAll('button').forEach((b) => (b.disabled = false));
-      setGuests(guestsInput.value);
+      refreshCounts();
     }
   });
 
@@ -829,7 +868,7 @@ textarea.input { min-height: 120px; resize: vertical; }
     renderSeal($('#extras-seal'), yes);
     $('#extras-title').textContent = yes ? `¡Gracias, ${firstName(current.name)}!` : `Gracias por avisarnos, ${firstName(current.name)}`;
     $('#extras-text').innerHTML = yes
-      ? `Tu lugar está confirmado para <strong>${people(current.guests)}</strong>. ¡Nos vemos el 19 de diciembre!`
+      ? `Tu lugar está confirmado para <strong>${partyText(current)}</strong>. ¡Nos vemos el 19 de diciembre!`
       : 'Te vamos a extrañar. Si quieres, déjale unas palabras a Marco.';
     $('#f-song').hidden = !yes;
     stepExtras.elements.message.value = '';
@@ -841,7 +880,7 @@ textarea.input { min-height: 120px; resize: vertical; }
     renderSeal($('#done-seal'), yes);
     $('#done-title').textContent = yes ? '¡Nos vemos en la fiesta!' : '¡Gracias!';
     $('#done-text').innerHTML = yes
-      ? `Confirmado para <strong>${people(current.guests)}</strong> a nombre de <strong>${escapeHtml(current.name)}</strong>.`
+      ? `Confirmado para <strong>${partyText(current)}</strong> a nombre de <strong>${escapeHtml(current.name)}</strong>.`
       : (current.sentExtras ? 'Le haremos llegar tu mensaje a Marco.' : 'Recibimos tu respuesta.');
     $('#done-reminder').hidden = !yes;
   }
@@ -878,7 +917,8 @@ textarea.input { min-height: 120px; resize: vertical; }
   $('#change-answer').addEventListener('click', () => {
     stepForm.elements.name.value = current.name || '';
     stepForm.elements.phone.value = current.phone || '';
-    setGuests(current.guests || 1);
+    setCount(adultsInput, current.adults != null ? current.adults : (current.guests || 1));
+    setCount(kidsInput, current.kids || 0);
     show(stepForm);
     stepForm.elements.name.focus({ preventScroll: true });
   });
